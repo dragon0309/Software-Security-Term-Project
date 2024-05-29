@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美味不浪費</title>
+</head>
+
+<body>
+    <h1>商家功能</h2>
+        <button onclick="generateData()">產生假資料</button>
+        <button onclick="append()">把有打折的倒進食物蟑螂資料庫</button>
+        <script>
+            function generateData() {
+                fetch('/db/generateItems', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                }).then(response => {
+                    if (response.ok) {
+                        console.log("成功");
+                        alert("成功");
+                    } else {
+                        console.log("失敗");
+                        alert("失敗");
+                    }
+                }).catch(error => {
+                    console.error('錯誤:', error);
+                });
+            }
+            function append() {
+                fetch('/db/append', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                }).then(response => {
+                    if (response.ok) {
+                        console.log("成功");
+                        alert("成功");
+                    } else {
+                        console.log("失敗");
+                        alert("失敗");
+                    }
+                }).catch(error => {
+                    console.error('錯誤:', error);
+                });
+            }
+        </script>
+</body>
+
+</html>
